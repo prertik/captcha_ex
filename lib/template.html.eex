@@ -9,7 +9,7 @@
 
     form = this;
 
-    var recaptchaObject = this.querySelector('div[class="g-recaptcha"]');
+    var recaptchaObject = this.querySelector('div[class="g-captcha_ex"]');
 
     if (recaptchaObject) {
       grecaptcha.execute();

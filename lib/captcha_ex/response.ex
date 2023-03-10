@@ -1,4 +1,4 @@
-defmodule Recaptcha.Response do
+defmodule CaptchaEx.Response do
   @moduledoc """
   A struct representing the successful recaptcha response from the reCAPTCHA API.
   """

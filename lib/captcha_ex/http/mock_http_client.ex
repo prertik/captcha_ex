@@ -1,8 +1,8 @@
-defmodule Recaptcha.Http.MockClient do
+defmodule CaptchaEx.Http.MockClient do
   @moduledoc """
   A mock HTTP client used for testing.
   """
-  alias Recaptcha.Http
+  alias CaptchaEx.Http
 
   def request_verification(body, options \\ [])
 

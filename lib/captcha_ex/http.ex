@@ -1,9 +1,9 @@
-defmodule Recaptcha.Http do
+defmodule CaptchaEx.Http do
   @moduledoc """
   Responsible for managing HTTP requests to the reCAPTCHA API.
   """
 
-  alias Recaptcha.Config
+  alias CaptchaEx.Config
 
   @headers [
     {"Content-type", "application/x-www-form-urlencoded"},
@@ -29,7 +29,7 @@ defmodule Recaptcha.Http do
         "challenge_ts" => ts,
         "hostname" => host,
         "error-codes" => errors
-      }} = Recaptcha.Http.request_verification(%{
+      }} = CaptchaEx.Http.request_verification(%{
         secret: "secret",
         response: "response",
         remote_ip: "remote_ip"
@@ -38,9 +38,9 @@ defmodule Recaptcha.Http do
   """
   @spec request_verification(binary, Keyword.t) :: {:ok, map} | {:error, [atom]}
   def request_verification(body, options \\ []) do
-    timeout = options[:timeout] || Config.get_env(:recaptcha, :timeout, 5000)
-    url = Config.get_env(:recaptcha, :verify_url, @default_verify_url)
-    json = Application.get_env(:recaptcha, :json_library, Jason)
+    timeout = options[:timeout] || Config.get_env(:captcha_ex, :timeout, 5000)
+    url = Config.get_env(:captcha_ex, :verify_url, @default_verify_url)
+    json = Application.get_env(:captcha_ex, :json_library, Jason)
 
     opts = [{:timeout, timeout} | options]
     result =

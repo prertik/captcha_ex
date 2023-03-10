@@ -1,12 +1,12 @@
-defmodule Recaptcha.Mixfile do
+defmodule CaptchaEx.Mixfile do
   use Mix.Project
 
-  @source_url "https://github.com/samueljseay/recaptcha"
-  @version "3.1.0"
+  @source_url "https://github.com/prertik/captcha_ex"
+  @version "0.1.0"
 
   def project do
     [
-      app: :recaptcha,
+      app: :captcha_ex,
       version: @version,
       elixir: "~> 1.6",
       description: description(),
@@ -39,28 +39,28 @@ defmodule Recaptcha.Mixfile do
 
   defp description do
     """
-    A simple reCaptcha package for Elixir applications, provides verification
-    and templates for rendering forms with the reCaptcha widget.
+    A simple captcha package for Elixir applications, provides verification
+    and templates for rendering forms with different captcha widgets.
     """
   end
 
   defp deps do
     [
       {:httpoison, ">= 0.12.0"},
-      {:jason, "~> 1.2", optional: true},
-      {:credo, "~> 1.0", only: [:dev, :test], runtime: false},
+      {:jason, "~> 1.4", optional: true},
+      {:credo, "~> 1.6", only: [:dev, :test], runtime: false},
       {:ex_doc, ">= 0.0.0", only: :dev, runtime: false},
-      {:dialyxir, "~> 0.5", only: [:dev]},
-      {:excoveralls, "~> 0.7.1", only: :test}
+      {:dialyxir, "~> 1.2", only: [:dev]},
+      {:excoveralls, "~> 0.16", only: :test}
     ]
   end
 
   defp package do
     [
       files: ["lib", "mix.exs", "README.md", "LICENSE.md"],
-      maintainers: ["Samuel Seay", "Nikita Sobolev", "Michael JustMikey"],
+      maintainers: ["Pratik Karki"],
       licenses: ["MIT"],
-      links: %{"GitHub" => "https://github.com/samueljseay/recaptcha"}
+      links: %{"GitHub" => "https://github.com/prertik/captcha_ex"}
     ]
   end
 

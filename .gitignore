@@ -20,7 +20,9 @@ erl_crash.dump
 *.ez
 
 # Ignore package tarball (built via "mix hex.build").
-recaptcha-*.tar
+captcha_ex-*.tar
 
 # Temporary files for e.g. tests.
 /tmp/
+/.idea/
+/captcha_ex.iml

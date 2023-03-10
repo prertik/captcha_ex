@@ -1,4 +1,4 @@
-defmodule Recaptcha do
+defmodule CaptchaEx do
   @moduledoc """
   A module for verifying reCAPTCHA version 2.0 response strings.
 
@@ -6,9 +6,9 @@ defmodule Recaptcha do
   for more details.
   """
 
-  alias Recaptcha.{Config, Http, Response}
+  alias CaptchaEx.{Config, Http, Response}
 
-  @http_client Application.get_env(:recaptcha, :http_client, Http)
+  @http_client Application.get_env(:captcha_ex, :http_client, Http)
 
   @doc """
   Verifies a reCAPTCHA response string.
@@ -22,7 +22,7 @@ defmodule Recaptcha do
 
   ## Examples
 
-      {:ok, api_response} = Recaptcha.verify("response_string")
+      {:ok, api_response} = CaptchaEx.verify("response_string")
 
   """
   @spec verify(String.t(), Keyword.t()) ::
@@ -53,7 +53,7 @@ defmodule Recaptcha do
 
   defp request_body(response, options) do
     body_options = Keyword.take(options, [:remote_ip, :secret])
-    application_options = [secret: Config.get_env(:recaptcha, :secret)]
+    application_options = [secret: Config.get_env(:captcha_ex, :secret)]
 
     # override application secret with options secret if it exists
     application_options
